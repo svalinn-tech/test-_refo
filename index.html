@@ -3,78 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parallel — Работа, которая вдохновляет</title>
-  <!-- Подключаем шрифт Inter как аналог Rules Font + системный sans -->
+  <title>Abetterlou AI — интеллект для вашего бизнеса</title>
+  <!-- Подключаем шрифт Inter как замену PP Neue Montreal (геометрический, человечный) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500&display=swap" rel="stylesheet" />
   <style>
-    /* ===== TOKENS ===== */
+    /* ===== TOKENS (Abetterlou) ===== */
     :root {
       /* Colors */
-      --color-cream-paper: #e4dfd9;
-      --color-pure-white: #ffffff;
-      --color-charcoal-ink: #000000;
-      --color-near-black: #050505;
-      --color-pressed-graphite: #171717;
-      --color-slate: #737373;
-      --color-iron: #4b4b4b;
-      --color-stone: #999694;
-      --color-pewter: #666666;
-      --color-fog: #c7c7c7;
-      --color-ember: #ff6a1f;
+      --color-espresso: #140b00;
+      --color-midnight-cocoa: #0b0600;
+      --color-warm-cream: #fff1e0;
+      --color-soft-cream: #f1f1f1;
+      --color-walnut: #43392d;
+      --color-cedar: #4f4538;
+      --color-driftwood: #85796c;
+      --color-burnt-edge: #181109;
+      --color-amber-forge: #ffb442;
 
       /* Typography */
-      --font-rules: 'Inter', ui-sans-serif, system-ui, sans-serif;
-      --font-ui: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      --font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      /* PP Neue Montreal заменён на Inter, сохраняя геометричность и читаемость */
 
       /* Type scale */
-      --text-caption: 14px;
-      --leading-caption: 1.2;
-      --tracking-caption: -0.02em;
-      --text-body: 16px;
-      --leading-body: 1.5;
-      --tracking-body: -0.02em;
+      --text-caption: 12px;
+      --text-body: 14px;
+      --text-body-lg: 16px;
       --text-subheading: 19px;
-      --leading-subheading: 1.4;
-      --tracking-subheading: -0.02em;
-      --text-heading-sm: 23px;
-      --leading-heading-sm: 1.4;
-      --tracking-heading-sm: -0.02em;
-      --text-heading: 28px;
-      --leading-heading: 1.4;
-      --tracking-heading: -0.02em;
-      --text-display: 69px;
-      --leading-display: 1.1;
-      --tracking-display: -0.02em;
+      --text-heading-sm: 22px;
+      --text-heading-lg: 35px;
+      --text-display: 43px;
+      --text-display-lg: 55px;
+      --text-hero: 73px;
+      --text-hero-xl: 81px;
+
+      /* Letter spacing */
+      --tracking-tight: -0.05em;
+      --tracking-medium: -0.02em;
 
       /* Spacing */
+      --sp-4: 4px;
+      --sp-6: 6px;
       --sp-8: 8px;
       --sp-10: 10px;
       --sp-12: 12px;
       --sp-14: 14px;
       --sp-16: 16px;
-      --sp-18: 18px;
-      --sp-22: 22px;
+      --sp-20: 20px;
       --sp-24: 24px;
       --sp-32: 32px;
       --sp-40: 40px;
-      --sp-54: 54px;
-      --sp-58: 58px;
-      --sp-72: 72px;
-      --sp-74: 74px;
-      --sp-100: 100px;
-      --sp-122: 122px;
+      --sp-52: 52px;
+      --sp-64: 64px;
+      --sp-80: 80px;
 
-      /* Border radius */
-      --radius-cards: 20px;
-      --radius-icons: 8px;
-      --radius-inputs: 12px;
-      --radius-buttons: 8px;
+      /* Radius */
       --radius-pill: 9999px;
+      --radius-card: 6px;
+      --radius-nav: 6px;
 
-      /* Shadows */
-      --shadow-xl: rgba(0, 0, 0, 0.07) 0px 6px 27px 0px;
+      /* Borders */
+      --border-walnut: 1px solid var(--color-walnut);
+      --border-cedar: 1px solid var(--color-cedar);
+      --border-amber: 1px solid var(--color-amber-forge);
 
       /* Layout */
       --page-max-width: 1200px;
@@ -88,18 +80,18 @@
     }
 
     body {
-      font-family: var(--font-ui);
-      background: var(--color-cream-paper);
-      color: var(--color-charcoal-ink);
+      font-family: var(--font-family);
+      background: var(--color-espresso);
+      color: var(--color-warm-cream);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     img {
       display: block;
       max-width: 100%;
     }
-
     a {
       text-decoration: none;
       color: inherit;
@@ -111,598 +103,814 @@
       padding: 0 var(--sp-24);
     }
 
+    /* ===== COMPONENTS ===== */
+
+    /* Amber Filled Pill Button */
+    .btn-amber {
+      display: inline-block;
+      background: var(--color-amber-forge);
+      color: var(--color-espresso);
+      font-weight: 500;
+      font-size: var(--text-body);
+      padding: var(--sp-12) var(--sp-20);
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .btn-amber:hover {
+      opacity: 0.85;
+    }
+
+    /* Cream Outlined Pill Button */
+    .btn-outline-cream {
+      display: inline-block;
+      background: transparent;
+      color: var(--color-warm-cream);
+      font-weight: 500;
+      font-size: var(--text-body);
+      padding: var(--sp-12) var(--sp-20);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-warm-cream);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .btn-outline-cream:hover {
+      background: var(--color-warm-cream);
+      color: var(--color-espresso);
+    }
+
+    /* Arrow Icon Circle (inline) */
+    .arrow-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-pill);
+      background: var(--color-amber-forge);
+      color: var(--color-espresso);
+      font-size: 20px;
+      font-weight: 400;
+      transition: opacity 0.2s;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .arrow-circle:hover {
+      opacity: 0.8;
+    }
+    .arrow-circle svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-espresso);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Pill Input */
+    .input-pill {
+      background: transparent;
+      border: var(--border-cedar);
+      border-radius: var(--radius-pill);
+      padding: var(--sp-12) var(--sp-20);
+      font-family: var(--font-family);
+      font-size: var(--text-body);
+      color: var(--color-warm-cream);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .input-pill::placeholder {
+      color: var(--color-driftwood);
+    }
+    .input-pill:focus {
+      border-color: var(--color-amber-forge);
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      background: var(--color-walnut);
+      color: var(--color-warm-cream);
+      font-size: var(--text-caption);
+      font-weight: 500;
+      padding: var(--sp-4) var(--sp-10);
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
     /* ===== NAVIGATION ===== */
     .navbar {
-      background: transparent;
       padding: var(--sp-16) 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: var(--sp-16);
+      background: transparent;
+      transition: background 0.3s;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar-scrolled {
+      background: var(--color-espresso);
     }
 
     .navbar .logo {
-      font-family: var(--font-rules);
       font-weight: 500;
-      font-size: var(--text-heading);
-      letter-spacing: var(--tracking-heading);
-      color: var(--color-charcoal-ink);
-      line-height: 1;
+      font-size: var(--text-heading-sm);
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-warm-cream);
     }
 
-    .nav-center {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: var(--sp-8);
-      background: var(--color-cream-paper);
-      border-radius: var(--radius-inputs);
-      padding: 4px;
+      gap: var(--sp-24);
+      font-size: var(--text-body);
+      font-weight: 400;
+      color: var(--color-warm-cream);
     }
-
-    .pill-toggle {
-      display: flex;
-      background: transparent;
-      border-radius: var(--radius-inputs);
-      padding: 4px;
-      gap: 4px;
+    .nav-links a {
+      transition: opacity 0.2s;
     }
-
-    .pill-toggle .tab {
-      padding: var(--sp-10) var(--sp-18);
-      border-radius: var(--radius-inputs);
-      font-size: var(--text-caption);
-      font-weight: 500;
-      color: var(--color-charcoal-ink);
-      background: transparent;
-      transition: all 0.2s;
-      cursor: default;
-      white-space: nowrap;
-    }
-
-    .pill-toggle .tab.active {
-      background: var(--color-pure-white);
-      box-shadow: var(--shadow-xl);
+    .nav-links a:hover {
+      opacity: 0.7;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: var(--sp-16);
-    }
-
-    .btn-ghost {
-      font-size: var(--text-caption);
-      font-weight: 500;
-      padding: var(--sp-8) var(--sp-8);
-      color: var(--color-charcoal-ink);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    .btn-ghost:hover {
-      opacity: 0.7;
-    }
-
-    .btn-dark {
-      background: var(--color-pressed-graphite);
-      color: var(--color-pure-white);
-      font-size: var(--text-caption);
-      font-weight: 500;
-      padding: var(--sp-10) var(--sp-18);
-      border-radius: var(--radius-buttons);
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      white-space: nowrap;
-    }
-    .btn-dark:hover {
-      opacity: 0.85;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: var(--color-pressed-graphite);
-      border-radius: var(--radius-cards);
-      margin: var(--sp-16) 0 var(--sp-32);
-      padding: var(--sp-72) var(--sp-24);
-      position: relative;
-      overflow: hidden;
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      /* имитация тёплого фото с затемнением */
-      background-image: linear-gradient(135deg, rgba(23, 23, 23, 0.6) 0%, rgba(0, 0, 0, 0.7) 100%),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800"><rect fill="%23b8a99a" width="1200" height="800"/><circle cx="200" cy="300" r="150" fill="%23907f6e" opacity="0.3"/><circle cx="900" cy="500" r="200" fill="%237a6b5d" opacity="0.2"/><circle cx="600" cy="150" r="100" fill="%23a3917e" opacity="0.2"/></svg>');
-      background-size: cover;
-      background-position: center;
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-family: var(--font-rules);
-      font-weight: 500;
-      font-size: var(--text-display);
-      letter-spacing: var(--tracking-display);
-      line-height: var(--leading-display);
-      color: white;
-      margin-bottom: var(--sp-16);
-    }
-
-    .hero h1 .ember-dot {
-      color: var(--color-ember);
-      display: inline-block;
-    }
-
-    .hero .subhead {
-      font-size: var(--text-subheading);
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: var(--sp-32);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-search {
-      display: flex;
-      align-items: center;
-      background: var(--color-pure-white);
-      border-radius: var(--radius-inputs);
-      padding: 0 var(--sp-16);
-      box-shadow: var(--shadow-xl);
-      max-width: 560px;
-      margin: 0 auto var(--sp-16);
-    }
-
-    .hero-search input {
-      flex: 1;
-      border: none;
-      padding: var(--sp-16) 0;
-      font-size: var(--text-body);
-      font-weight: 400;
-      color: var(--color-charcoal-ink);
-      background: transparent;
-      outline: none;
-      font-family: var(--font-ui);
-    }
-
-    .hero-search input::placeholder {
-      color: var(--color-stone);
-    }
-
-    .hero-search .search-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--color-charcoal-ink);
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: opacity 0.2s;
-    }
-    .hero-search .search-btn:hover {
-      opacity: 0.8;
-    }
-    .hero-search .search-btn svg {
-      width: 18px;
-      height: 18px;
-      stroke: white;
-      stroke-width: 2;
-      fill: none;
-    }
-
-    .hero .tertiary-link {
-      display: inline-block;
-      font-size: var(--text-caption);
-      font-weight: 500;
-      color: white;
-      opacity: 0.8;
-      border-bottom: 1px solid transparent;
-      transition: opacity 0.2s, border-color 0.2s;
-      margin-top: var(--sp-8);
-    }
-    .hero .tertiary-link:hover {
-      opacity: 1;
-      border-bottom-color: white;
-    }
-
-    .hero .live-status {
-      margin-top: var(--sp-24);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--sp-8);
-      font-size: var(--text-caption);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .hero .live-status .dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--color-ember);
-      margin-right: var(--sp-8);
-    }
-
-    /* ===== SECTION ===== */
-    .section {
-      padding: var(--sp-72) 0;
-    }
-
-    .section-heading {
-      font-family: var(--font-rules);
-      font-weight: 500;
-      font-size: var(--text-heading);
-      letter-spacing: var(--tracking-heading);
-      color: var(--color-charcoal-ink);
-      margin-bottom: var(--sp-16);
-    }
-
-    .section-sub {
-      font-size: var(--text-body);
-      color: var(--color-slate);
-      max-width: 500px;
-      margin-bottom: var(--sp-32);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--sp-32);
-    }
-
-    .card-feature {
-      background: var(--color-pure-white);
-      border-radius: var(--radius-cards);
-      padding: var(--sp-32);
-      box-shadow: var(--shadow-xl);
-      transition: transform 0.2s;
-    }
-    .card-feature:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-feature .mockup {
-      background: var(--color-cream-paper);
-      border-radius: var(--radius-inputs);
-      padding: var(--sp-16);
-      margin-bottom: var(--sp-24);
-      min-height: 80px;
-      display: flex;
-      align-items: center;
       gap: var(--sp-12);
-      font-size: var(--text-caption);
-      color: var(--color-slate);
     }
 
-    .card-feature .mockup .badge {
-      background: var(--color-ember);
-      color: white;
-      border-radius: var(--radius-pill);
-      padding: 2px var(--sp-12);
-      font-weight: 500;
-      font-size: 12px;
-    }
-
-    .card-feature h3 {
-      font-family: var(--font-rules);
-      font-weight: 500;
-      font-size: var(--text-heading-sm);
-      letter-spacing: var(--tracking-heading-sm);
-      margin-bottom: var(--sp-8);
-    }
-
-    .card-feature p {
-      font-size: var(--text-body);
-      color: var(--color-slate);
-    }
-
-    /* ===== FULL-BLEED IMAGE CARD ===== */
-    .full-bleed-card {
-      border-radius: var(--radius-cards);
-      overflow: hidden;
-      position: relative;
-      background: var(--color-pressed-graphite);
-      margin: var(--sp-32) 0;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: linear-gradient(135deg, rgba(23, 23, 23, 0.6), rgba(0, 0, 0, 0.8)),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400"><rect fill="%23a89683" width="1200" height="400"/><circle cx="300" cy="200" r="120" fill="%238f7d6b" opacity="0.3"/><circle cx="900" cy="250" r="160" fill="%237a6a5a" opacity="0.2"/></svg>');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .full-bleed-card .content {
-      text-align: center;
-      color: white;
-      padding: var(--sp-40);
-    }
-
-    .full-bleed-card .content h2 {
-      font-family: var(--font-rules);
-      font-weight: 500;
-      font-size: var(--text-heading);
-      letter-spacing: var(--tracking-heading);
-      margin-bottom: var(--sp-16);
-    }
-
-    .full-bleed-card .content p {
-      font-size: var(--text-body);
-      opacity: 0.85;
-      max-width: 480px;
-      margin: 0 auto var(--sp-24);
-    }
-
-    /* ===== JOB TAGS ===== */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--sp-12);
-      margin-top: var(--sp-16);
-    }
-
-    .tag {
-      background: var(--color-pure-white);
-      border: 1px solid var(--color-fog);
-      border-radius: var(--radius-pill);
-      padding: var(--sp-10) var(--sp-18);
-      font-size: var(--text-caption);
-      font-weight: 500;
-      color: var(--color-charcoal-ink);
-      cursor: default;
-      transition: background 0.2s;
-    }
-    .tag:hover {
-      background: var(--color-cream-paper);
-    }
-
-    /* ===== 3D BRAND MARK (P) ===== */
-    .brand-mark {
-      text-align: center;
-      padding: var(--sp-58) 0;
-    }
-
-    .brand-mark .p-logo {
-      font-family: var(--font-rules);
-      font-size: 120px;
-      font-weight: 500;
-      color: var(--color-pressed-graphite);
-      opacity: 0.15;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      user-select: none;
-    }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .navbar {
         flex-direction: column;
         align-items: stretch;
         gap: var(--sp-12);
       }
-      .nav-center {
-        order: 3;
+      .nav-links {
         justify-content: center;
-        background: transparent;
-        padding: 0;
-      }
-      .pill-toggle {
-        background: var(--color-cream-paper);
-        padding: 4px;
-        width: 100%;
-        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--sp-16);
       }
       .nav-actions {
-        justify-content: space-between;
-      }
-
-      .hero {
-        padding: var(--sp-40) var(--sp-16);
-        min-height: 60vh;
-      }
-      .hero h1 {
-        font-size: 42px;
-        letter-spacing: -0.02em;
-      }
-      .hero .subhead {
-        font-size: var(--text-body);
-      }
-      .hero-search {
-        flex-direction: row;
-        padding: 0 var(--sp-12);
-      }
-      .hero-search input {
-        font-size: var(--text-caption);
-        padding: var(--sp-12) 0;
-      }
-      .section {
-        padding: var(--sp-40) 0;
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-      .full-bleed-card {
-        min-height: 240px;
-      }
-      .brand-mark .p-logo {
-        font-size: 72px;
+        justify-content: center;
       }
     }
 
-    @media (max-width: 480px) {
+    /* ===== HERO ===== */
+    .hero {
+      padding: var(--sp-64) 0 var(--sp-52);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-40);
+      align-items: center;
+      min-height: 80vh;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(20,11,0,0.9) 0%, rgba(20,11,0,0.3) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-image {
+      position: relative;
+      z-index: 2;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--color-walnut);
+      min-height: 400px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600"><rect fill="%2343392d" width="600" height="600"/><circle cx="300" cy="300" r="200" fill="%235a4e3f" opacity="0.4"/><circle cx="200" cy="150" r="100" fill="%236a5d4c" opacity="0.3"/></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h1 {
+      font-weight: 400;
+      font-size: var(--text-hero);
+      line-height: 1;
+      letter-spacing: -0.8px;
+      color: var(--color-warm-cream);
+      margin-bottom: var(--sp-16);
+    }
+    .hero h1 .accent {
+      color: var(--color-amber-forge);
+    }
+    .hero .subtext {
+      font-size: var(--text-body-lg);
+      color: var(--color-driftwood);
+      max-width: 440px;
+      margin-bottom: var(--sp-32);
+      line-height: 1.5;
+    }
+    .hero .cta-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-12);
+      flex-wrap: wrap;
+    }
+    .hero .cta-row .arrow-circle {
+      margin-left: var(--sp-8);
+    }
+
+    .hero .stats {
+      display: flex;
+      gap: var(--sp-32);
+      margin-top: var(--sp-40);
+      border-top: var(--border-walnut);
+      padding-top: var(--sp-24);
+    }
+    .hero .stats-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero .stats-item .number {
+      font-weight: 500;
+      font-size: var(--text-heading-lg);
+      color: var(--color-warm-cream);
+      letter-spacing: var(--tracking-tight);
+    }
+    .hero .stats-item .label {
+      font-size: var(--text-caption);
+      color: var(--color-driftwood);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: var(--sp-40) 0;
+      }
+      .hero .subtext {
+        max-width: 100%;
+      }
+      .hero .cta-row {
+        justify-content: center;
+      }
+      .hero .stats {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
       .hero h1 {
-        font-size: 32px;
+        font-size: 42px;
+        letter-spacing: -0.4px;
       }
-      .nav-actions .btn-ghost {
-        font-size: 12px;
-        padding: var(--sp-8) var(--sp-8);
+      .hero-image {
+        min-height: 200px;
+        order: -1;
       }
-      .btn-dark {
-        font-size: 12px;
-        padding: var(--sp-8) var(--sp-14);
+    }
+
+    /* ===== FEATURES (3-up) ===== */
+    .section {
+      padding: var(--sp-52) 0;
+    }
+
+    .section-header {
+      margin-bottom: var(--sp-40);
+    }
+    .section-header h2 {
+      font-weight: 400;
+      font-size: var(--text-display);
+      letter-spacing: var(--tracking-medium);
+      color: var(--color-warm-cream);
+      line-height: 1.1;
+    }
+    .section-header p {
+      color: var(--color-driftwood);
+      font-size: var(--text-body-lg);
+      max-width: 500px;
+      margin-top: var(--sp-12);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--sp-32);
+    }
+
+    .feature-card {
+      padding: var(--sp-12) 0;
+      border-bottom: var(--border-walnut);
+    }
+    .feature-card .icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-pill);
+      border: var(--border-walnut);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--sp-16);
+      color: var(--color-warm-cream);
+      font-size: 20px;
+    }
+    .feature-card h3 {
+      font-weight: 500;
+      font-size: var(--text-heading-sm);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--sp-8);
+    }
+    .feature-card p {
+      font-size: var(--text-body);
+      color: var(--color-driftwood);
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--sp-32);
+      counter-reset: step;
+    }
+    .step-item {
+      counter-increment: step;
+      border-bottom: var(--border-walnut);
+      padding-bottom: var(--sp-16);
+    }
+    .step-item .step-number {
+      font-weight: 500;
+      font-size: var(--text-display-lg);
+      color: var(--color-amber-forge);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: var(--sp-8);
+    }
+    .step-item h4 {
+      font-weight: 500;
+      font-size: var(--text-heading-sm);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--sp-4);
+    }
+    .step-item p {
+      font-size: var(--text-body);
+      color: var(--color-driftwood);
+    }
+
+    /* ===== PRICING ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--sp-32);
+    }
+    .pricing-card {
+      border: var(--border-walnut);
+      border-radius: var(--radius-card);
+      padding: var(--sp-24);
+      background: var(--color-midnight-cocoa);
+      transition: border-color 0.2s;
+    }
+    .pricing-card:hover {
+      border-color: var(--color-amber-forge);
+    }
+    .pricing-card .plan-name {
+      font-weight: 500;
+      font-size: var(--text-heading-sm);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--sp-4);
+    }
+    .pricing-card .plan-price {
+      font-weight: 400;
+      font-size: var(--text-display);
+      color: var(--color-amber-forge);
+      line-height: 1.2;
+      margin-bottom: var(--sp-16);
+    }
+    .pricing-card .plan-price span {
+      font-size: var(--text-body);
+      color: var(--color-driftwood);
+    }
+    .pricing-card ul {
+      list-style: none;
+      margin: var(--sp-16) 0;
+      padding: 0;
+    }
+    .pricing-card ul li {
+      font-size: var(--text-body);
+      color: var(--color-warm-cream);
+      padding: var(--sp-8) 0;
+      border-bottom: var(--border-walnut);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-8);
+    }
+    .pricing-card ul li::before {
+      content: "✓";
+      color: var(--color-amber-forge);
+      font-weight: 500;
+    }
+    .pricing-card .btn-amber {
+      width: 100%;
+      margin-top: var(--sp-12);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--sp-32);
+    }
+    .testimonial-card {
+      border: var(--border-walnut);
+      border-radius: var(--radius-card);
+      padding: var(--sp-20);
+      background: var(--color-midnight-cocoa);
+    }
+    .testimonial-card .quote {
+      font-size: var(--text-body-lg);
+      color: var(--color-warm-cream);
+      font-style: italic;
+      margin-bottom: var(--sp-16);
+    }
+    .testimonial-card .author {
+      font-weight: 500;
+      font-size: var(--text-body);
+      color: var(--color-warm-cream);
+    }
+    .testimonial-card .role {
+      font-size: var(--text-caption);
+      color: var(--color-driftwood);
+    }
+
+    /* ===== FAQ ===== */
+    .faq-section {
+      background: var(--color-soft-cream);
+      color: var(--color-espresso);
+      padding: var(--sp-52) 0;
+    }
+    .faq-section .container {
+      max-width: 800px;
+    }
+    .faq-section .section-header h2 {
+      color: var(--color-espresso);
+    }
+    .faq-section .section-header p {
+      color: var(--color-cedar);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-walnut);
+      padding: var(--sp-16) 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .faq-item:hover {
+      opacity: 0.8;
+    }
+    .faq-item .question {
+      font-weight: 500;
+      font-size: var(--text-subheading);
+    }
+    .faq-item .plus {
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--color-espresso);
+    }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner {
+      background: var(--color-midnight-cocoa);
+      border-radius: var(--radius-card);
+      padding: var(--sp-40) var(--sp-32);
+      text-align: center;
+      border: var(--border-walnut);
+    }
+    .cta-banner h2 {
+      font-weight: 400;
+      font-size: var(--text-display);
+      letter-spacing: var(--tracking-medium);
+      margin-bottom: var(--sp-16);
+    }
+    .cta-banner p {
+      color: var(--color-driftwood);
+      max-width: 500px;
+      margin: 0 auto var(--sp-24);
+    }
+    .cta-banner .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-12);
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--color-midnight-cocoa);
+      padding: var(--sp-40) 0;
+      border-top: var(--border-walnut);
+      margin-top: var(--sp-52);
+    }
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-16);
+    }
+    .footer .logo {
+      font-weight: 500;
+      font-size: var(--text-heading-sm);
+      letter-spacing: var(--tracking-tight);
+    }
+    .footer .links {
+      display: flex;
+      gap: var(--sp-24);
+      font-size: var(--text-body);
+      color: var(--color-driftwood);
+    }
+    .footer .links a:hover {
+      color: var(--color-warm-cream);
+    }
+    .footer .legal {
+      font-size: var(--text-caption);
+      color: var(--color-driftwood);
+      width: 100%;
+      text-align: center;
+      margin-top: var(--sp-16);
+    }
+
+    @media (max-width: 768px) {
+      .footer .container {
+        flex-direction: column;
+        text-align: center;
       }
+    }
+
+    /* ===== UTILITY ===== */
+    .text-center {
+      text-align: center;
+    }
+    .mt-32 {
+      margin-top: var(--sp-32);
+    }
+    .mb-32 {
+      margin-bottom: var(--sp-32);
     }
   </style>
 </head>
 <body>
 
   <!-- ===== NAVIGATION ===== -->
-  <div class="container">
-    <nav class="navbar">
-      <div class="logo">parallel</div>
-
-      <div class="nav-center">
-        <div class="pill-toggle">
-          <span class="tab active">Таланты</span>
-          <span class="tab">Работодатели</span>
-        </div>
-      </div>
-
-      <div class="nav-actions">
-        <a href="#" class="btn-ghost">Войти</a>
-        <a href="#" class="btn-dark">Найти работу</a>
-      </div>
-    </nav>
-  </div>
+  <nav class="navbar container" id="navbar">
+    <div class="logo">Abetterlou AI</div>
+    <div class="nav-links">
+      <a href="#features">Возможности</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="btn-outline-cream">Войти</a>
+      <a href="#cta" class="btn-amber">Начать</a>
+    </div>
+  </nav>
 
   <!-- ===== HERO ===== -->
   <div class="container">
     <section class="hero">
       <div class="hero-content">
         <h1>
-          Найди своё призвание<span class="ember-dot">.</span>
+          Интеллект, который<br />
+          <span class="accent">работает на вас</span>
         </h1>
-        <p class="subhead">
-          Никаких фейковых вакансий, только свежие прямые предложения от компаний — персонально для тебя.
+        <p class="subtext">
+          Автоматизируйте рутину, анализируйте данные и принимайте решения быстрее с помощью нашей ИИ-платформы. Без сложных настроек.
         </p>
-
-        <div class="hero-search">
-          <input type="text" placeholder="Что ты ищешь?" />
-          <button class="search-btn" aria-label="Искать">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="16" y1="16" x2="22" y2="22" />
-            </svg>
-          </button>
+        <div class="cta-row">
+          <a href="#cta" class="btn-amber">Попробовать бесплатно</a>
+          <span class="arrow-circle">
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
         </div>
-
-        <a href="#" class="tertiary-link">Я не уверен, помогите →</a>
-
-        <div class="live-status">
-          <span class="dot"></span>
-          <span>23 237 новых вакансий сегодня</span>
+        <div class="stats">
+          <div class="stats-item">
+            <span class="number">12k+</span>
+            <span class="label">Компаний доверяют</span>
+          </div>
+          <div class="stats-item">
+            <span class="number">98%</span>
+            <span class="label">Точность прогнозов</span>
+          </div>
+          <div class="stats-item">
+            <span class="number">4.9</span>
+            <span class="label">Рейтинг пользователей</span>
+          </div>
         </div>
       </div>
+      <div class="hero-image" aria-label="Иллюстрация ИИ-технологий"></div>
     </section>
   </div>
 
   <!-- ===== FEATURES ===== -->
+  <div class="container" id="features">
+    <section class="section">
+      <div class="section-header">
+        <h2>Почему выбирают нас</h2>
+        <p>Инструменты, которые реально помогают бизнесу расти, — без лишнего шума.</p>
+      </div>
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="icon-circle">⚡</div>
+          <h3>Мгновенная аналитика</h3>
+          <p>Обрабатывайте большие данные за секунды, получайте понятные дашборды и прогнозы.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">🤖</div>
+          <h3>Персональный ассистент</h3>
+          <p>ИИ-агент, который отвечает на вопросы, пишет тексты и помогает с отчётами 24/7.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">🔒</div>
+          <h3>Безопасность на первом месте</h3>
+          <p>Шифрование данных и соответствие GDPR — ваша информация под надёжной защитой.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== HOW IT WORKS ===== -->
   <div class="container">
     <section class="section">
-      <h2 class="section-heading">Работа, которая подходит именно тебе</h2>
-      <p class="section-sub">
-        Мы показываем только те вакансии, которые действительно соответствуют твоему опыту и целям.
-      </p>
-
-      <div class="grid-3">
-        <!-- Карточка 1 -->
-        <div class="card-feature">
-          <div class="mockup">
-            <span>🔍</span>
-            <span style="flex:1;">UX-дизайнер · 95% совпадение</span>
-            <span class="badge">новое</span>
-          </div>
-          <h3>Гиперперсональные рекомендации</h3>
-          <p>Никакого спама. Только те роли, которые действительно имеют смысл для твоего профиля.</p>
+      <div class="section-header text-center">
+        <h2>Как это работает</h2>
+        <p style="max-width:600px; margin: var(--sp-12) auto 0;">Три шага, чтобы запустить ИИ в вашем бизнесе</p>
+      </div>
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-number">01</div>
+          <h4>Подключите данные</h4>
+          <p>Загрузите ваши файлы, CRM или просто начните с тестового набора.</p>
         </div>
-
-        <!-- Карточка 2 -->
-        <div class="card-feature">
-          <div class="mockup">
-            <span>💬</span>
-            <span style="flex:1;">«Привет, мы ищем senior-разработчика...»</span>
-          </div>
-          <h3>Прямой контакт с компаниями</h3>
-          <p>Общайся с нанимателями напрямую, без посредников и бесконечных тестовых заданий.</p>
+        <div class="step-item">
+          <div class="step-number">02</div>
+          <h4>Настройте сценарии</h4>
+          <p>Выберите задачи: прогнозирование, генерация контента, чат-бот — или всё сразу.</p>
         </div>
-
-        <!-- Карточка 3 -->
-        <div class="card-feature">
-          <div class="mockup">
-            <span>👤</span>
-            <span style="flex:1;">Анна К., 5 лет опыта · Product Manager</span>
-          </div>
-          <h3>Твой профиль — твоя витрина</h3>
-          <p>Покажи свои лучшие проекты и получай предложения от компаний, которые ищут именно тебя.</p>
+        <div class="step-item">
+          <div class="step-number">03</div>
+          <h4>Получайте результаты</h4>
+          <p>ИИ работает в фоне, вы видите отчёты и экономите часы каждый день.</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- ===== FULL-BLEED CTA ===== -->
-  <div class="container">
-    <div class="full-bleed-card">
-      <div class="content">
-        <h2>Готов к переменам?</h2>
-        <p>Присоединяйся к сообществу, где работа приносит удовольствие и развитие.</p>
-        <a href="#" class="btn-dark" style="display:inline-block;">Начать сейчас</a>
+  <!-- ===== PRICING ===== -->
+  <div class="container" id="pricing">
+    <section class="section">
+      <div class="section-header text-center">
+        <h2>Выберите свой тариф</h2>
+        <p style="max-width:500px; margin: var(--sp-12) auto 0;">Гибкие цены для любого масштаба</p>
       </div>
-    </div>
-  </div>
-
-  <!-- ===== BRAND MARK (P) ===== -->
-  <div class="container">
-    <div class="brand-mark">
-      <div class="p-logo">P</div>
-    </div>
-  </div>
-
-  <!-- ===== JOB TAGS ===== -->
-  <div class="container">
-    <section class="section" style="padding-top:0;">
-      <h2 class="section-heading">Популярные направления</h2>
-      <div class="tags">
-        <span class="tag">Дизайн</span>
-        <span class="tag">Разработка</span>
-        <span class="tag">Маркетинг</span>
-        <span class="tag">Продукт</span>
-        <span class="tag">HR</span>
-        <span class="tag">Финансы</span>
-        <span class="tag">Операции</span>
-        <span class="tag">Консалтинг</span>
-        <span class="tag">Креатив</span>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="plan-name">Старт</div>
+          <div class="plan-price">0 ₽ <span>/ месяц</span></div>
+          <ul>
+            <li>До 1 000 запросов в месяц</li>
+            <li>Базовая аналитика</li>
+            <li>Чат-поддержка</li>
+          </ul>
+          <a href="#" class="btn-amber">Начать бесплатно</a>
+        </div>
+        <div class="pricing-card">
+          <div class="plan-name">Бизнес</div>
+          <div class="plan-price">4 900 ₽ <span>/ месяц</span></div>
+          <ul>
+            <li>До 50 000 запросов</li>
+            <li>Расширенная аналитика + прогнозы</li>
+            <li>Персональный ассистент</li>
+            <li>Приоритетная поддержка</li>
+          </ul>
+          <a href="#" class="btn-amber">Выбрать</a>
+        </div>
+        <div class="pricing-card">
+          <div class="plan-name">Корпоративный</div>
+          <div class="plan-price">По запросу</div>
+          <ul>
+            <li>Неограниченные запросы</li>
+            <li>Кастомные модели ИИ</li>
+            <li>Выделенный менеджер</li>
+            <li>Интеграция с вашими системами</li>
+          </ul>
+          <a href="#" class="btn-amber">Связаться</a>
+        </div>
       </div>
     </section>
   </div>
 
-  <!-- ===== FOOTER (минимальный, для завершённости) ===== -->
-  <div style="background: var(--color-cream-paper); padding: var(--sp-32) 0; border-top: 1px solid var(--color-fog); margin-top: var(--sp-32);">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--sp-16); font-size:var(--text-caption); color:var(--color-slate);">
-      <span>© 2026 Parallel — работа, которая вдохновляет</span>
-      <span style="display:flex; gap:var(--sp-16);">
-        <a href="#" style="color:var(--color-slate);">О нас</a>
-        <a href="#" style="color:var(--color-slate);">Помощь</a>
-        <a href="#" style="color:var(--color-slate);">Политика</a>
-      </span>
+  <!-- ===== TESTIMONIALS ===== -->
+  <div class="container">
+    <section class="section">
+      <div class="section-header text-center">
+        <h2>Отзывы наших клиентов</h2>
+        <p style="max-width:500px; margin: var(--sp-12) auto 0;">Реальные истории успеха</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote">«ИИ-ассистент сократил время на отчёты в 3 раза. Теперь мы фокусируемся на стратегии».</div>
+          <div class="author">Алексей Н.</div>
+          <div class="role">CEO, FinTech</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">«Прогнозы продаж стали точнее на 25% — это изменило наше планирование».</div>
+          <div class="author">Мария С.</div>
+          <div class="role">Директор по маркетингу</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">«Самый простой в использовании ИИ-инструмент, который мы тестировали. Команда в восторге».</div>
+          <div class="author">Игорь К.</div>
+          <div class="role">Руководитель продукта</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <div class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Часто задаваемые вопросы</h2>
+        <p style="color: var(--color-cedar);">Всё, что нужно знать перед стартом</p>
+      </div>
+      <div class="faq-item">
+        <span class="question">Как я могу начать использовать платформу?</span>
+        <span class="plus">+</span>
+      </div>
+      <div class="faq-item">
+        <span class="question">Какие данные я могу загружать?</span>
+        <span class="plus">+</span>
+      </div>
+      <div class="faq-item">
+        <span class="question">Подходит ли решение для моего бизнеса?</span>
+        <span class="plus">+</span>
+      </div>
+      <div class="faq-item">
+        <span class="question">Есть ли бесплатный тариф?</span>
+        <span class="plus">+</span>
+      </div>
     </div>
   </div>
+
+  <!-- ===== CTA BANNER ===== -->
+  <div class="container" id="cta">
+    <section class="section">
+      <div class="cta-banner">
+        <h2>Готовы ускорить свой бизнес?</h2>
+        <p>Присоединяйтесь к тысячам компаний, которые уже используют ИИ для роста. Первый месяц — бесплатно.</p>
+        <div class="cta-row">
+          <a href="#" class="btn-amber">Начать бесплатно</a>
+          <a href="#" class="btn-outline-cream">Узнать больше</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="logo">Abetterlou AI</div>
+      <div class="links">
+        <a href="#">О нас</a>
+        <a href="#">Блог</a>
+        <a href="#">Помощь</a>
+        <a href="#">Контакты</a>
+      </div>
+      <div class="legal">© 2026 Abetterlou AI. Все права защищены.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Простой скролл-эффект для навигации
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+  </script>
 
 </body>
 </html>
